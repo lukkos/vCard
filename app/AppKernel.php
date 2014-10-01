@@ -20,6 +20,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Lukkos\VCardBundle\LukkosVCardBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Lukkos\UserBundle\LukkosUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

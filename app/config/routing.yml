@@ -1,3 +1,11 @@
+lukkos_user:
+    resource: "@LukkosUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 lukkos_v_card:
     resource: "@LukkosVCardBundle/Resources/config/routing.yml"
+    
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

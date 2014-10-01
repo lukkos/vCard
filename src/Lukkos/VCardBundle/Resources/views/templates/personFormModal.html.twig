@@ -1,3 +1,4 @@
+{% if is_granted("ROLE_ADMIN") %}
         <div class="modal-header">
             <h3 class="modal-title">Person</h3>
         </div>
@@ -20,3 +21,39 @@
             <a href="" class="btn btn-warning" ng-click="cancel()">Cancel</a>
         </div>
         </form>
+{% else %}
+    <div class="modal-header">
+            <h3 class="modal-title">Person</h3>
+    </div>
+    <style type="text/css">
+        ul.milolist {
+            list-style: none;
+        }
+        ul.milolist li{
+            list-style: none;
+            padding:10px;
+        }
+        ul.milolist li span{
+            display: inline-block;
+        }
+        ul.milolist li span.label{
+            color:#08C;   
+            text-align:right;
+            width:130px;
+            padding-right:20px;
+        }
+    </style>
+    <ul class="milolist" ng-show="lukkos_vcardbundle_person.id">
+        {% raw %}
+        <li><span class="label">Name:</span><span class="txt">{{lukkos_vcardbundle_person.name}}</span></li>
+        <li><span class="label">Surname:</span><span class="txt">{{lukkos_vcardbundle_person.surname}}</span></li>
+        <li><span class="label">Date of birth:</span><span class="txt">{{lukkos_vcardbundle_person.date_of_birth}}</span></li>
+        <li><span class="label">Address:</span><span class="txt">{{lukkos_vcardbundle_person.address}}</span></li>
+        <li><span class="label">Company:</span><span class="txt">{{lukkos_vcardbundle_person.companyName}}</span></li>
+        <li><span class="label">Company address:</span><span class="txt">{{lukkos_vcardbundle_person.companyAddress}}</span></li>
+        {% endraw %}
+    </ul>
+    <div class="modal-footer">
+            <a href="" class="btn btn-warning" ng-click="cancel()">Cancel</a>
+    </div>        
+{% endif %}

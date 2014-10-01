@@ -1,0 +1,22 @@
+        <div class="modal-header">
+            <h3 class="modal-title">User</h3>
+        </div>
+        <form novalidate name="{{form.vars.name}}_angular" ng-submit="submit(lukkos_userbundle_user,'{{ path('new_user') }}')" {{ form_enctype(form) }} role="form">
+        <div class="modal-body">
+        {% raw %}
+        <div ng-show="flash.message" class="alert alert-{{flash.status}}" ><span class="glyphicon glyphicon-{{flash.icon}}"></span>&nbsp; {{flash.message}}</div>
+        {% endraw %}
+            {{ form_widget(form) }}
+            
+            {% raw %}
+                
+                <div style="display:none">{{lukkos_userbundle_user|json}}</div>
+                
+            {% endraw %}
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" value="Save" />
+            <a href="" ng-show="lukkos_userbundle_user.id" class="btn btn-danger" ng-click="remove(lukkos_userbundle_user)">Delete</a>
+            <a href="" class="btn btn-warning" ng-click="cancel()">Cancel</a>
+        </div>
+        </form>

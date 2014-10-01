@@ -210,6 +210,8 @@ class Person
         if($this->getCompany())
         {
             $arr['company'] = $this->getCompany()->getId();
+            $arr['companyName'] = $this->getCompany()->getName();
+            $arr['companyAddress'] = $this->getCompany()->getAddress();
         }
         else 
         {

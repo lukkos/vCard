@@ -1,0 +1,31 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <style type="text/css">
+          em { color:orange; }
+        </style>
+    <div style="width:300px; margin:auto; margin-top:100px;">
+    <p>
+        Choose between two default users: <br /><em><b>milo</b> / milo</em> <small>(ROLE_USER)</small> <br /> <em><b>miloadmin</b> / miloadmin</em> <small>(ROLE_ADMIN)</small>
+    </p>
+
+    {% if error %}
+        <div class="error" style="color:red;">{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post" id="login" class="form-signin">
+        <h2 class="form-signin-heading">Sign in</h2>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        <input type="text" class="form-control" placeholder="Username"  id="username" name="_username" value="{{ last_username }}" style="margin-top:10px;"/>
+        <input type="password" class="form-control" placeholder="Password" id="password" name="_password" style="margin-top:10px;"/>
+        
+
+        <button type="submit" class="btn btn-lg btn-primary btn-block sf-button" style="margin-top:10px;">
+            Login
+        </button>
+    </form>
+    </div>
+    </div>
+{% endblock %}
+

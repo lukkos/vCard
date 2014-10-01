@@ -22,7 +22,7 @@ class vcardController extends Controller implements ClassResourceInterface
     */
     public function cgetAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $query = $em->getRepository('LukkosVCardBundle:Person')->createQueryBuilder('p')->getQuery();
         $paginator  = $this->get('knp_paginator');
@@ -100,7 +100,7 @@ class vcardController extends Controller implements ClassResourceInterface
         if(!$id)
             throw $this->createNotFoundException('The page does not exist');
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         
         $vCard = $em->getRepository('LukkosVCardBundle:Person')->findOneById($id)->toArray();
         //var_dump($vCard); die();
@@ -111,7 +111,7 @@ class vcardController extends Controller implements ClassResourceInterface
 
     public function putAction(Request $request,$id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $vCard = $em->getRepository('LukkosVCardBundle:Person')->find($id);
         
         if(!$vCard)
@@ -166,7 +166,7 @@ class vcardController extends Controller implements ClassResourceInterface
         if(!$id)
             throw $this->createNotFoundException('The page does not exist');
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         
         $vCard = $em->getRepository('LukkosVCardBundle:Person')->findOneById($id);
         

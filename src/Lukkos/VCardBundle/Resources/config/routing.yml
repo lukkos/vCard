@@ -6,6 +6,10 @@ lukkos_company_api:
     type: rest
     prefix:   /api
     resource: Lukkos\VCardBundle\Controller\companyController
+lukkos_user_api:
+    type: rest
+    prefix:   /api
+    resource: Lukkos\VCardBundle\Controller\userController    
 lukkos_v_card_templates:
     path:     /
     defaults: { _controller: LukkosVCardBundle:templates:index }
@@ -21,3 +25,9 @@ lukkos_v_card_companies_list_template:
 lukkos_v_card_company_form_modal:
     path:     /company/formModal
     defaults: { _controller: LukkosVCardBundle:templates:companyFormModal }
+lukkos_v_card_users_list_template:
+    path:     /usersListTemplate
+    defaults: { _controller: LukkosVCardBundle:templates:usersListTemplate }
+lukkos_v_card_user_form_modal:
+    path:     /user/formModal
+    defaults: { _controller: LukkosVCardBundle:templates:userFormModal }

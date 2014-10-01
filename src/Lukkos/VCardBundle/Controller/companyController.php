@@ -22,7 +22,7 @@ class companyController extends Controller implements ClassResourceInterface
     */
     public function cgetAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $query = $em->getRepository('LukkosVCardBundle:Company')->createQueryBuilder('p')->getQuery();
         $paginator  = $this->get('knp_paginator');
@@ -99,7 +99,7 @@ class companyController extends Controller implements ClassResourceInterface
         if(!$id)
             throw $this->createNotFoundException('The page does not exist');
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         
         $company = $em->getRepository('LukkosVCardBundle:Company')->findOneById($id)->toArray();
 
@@ -110,7 +110,7 @@ class companyController extends Controller implements ClassResourceInterface
 
     public function putAction(Request $request,$id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $company = $em->getRepository('LukkosVCardBundle:Company')->find($id);
         
         if(!$company)
@@ -165,7 +165,7 @@ class companyController extends Controller implements ClassResourceInterface
         if(!$id)
             throw $this->createNotFoundException('The page does not exist');
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         
         $company = $em->getRepository('LukkosVCardBundle:Company')->findOneById($id);
         

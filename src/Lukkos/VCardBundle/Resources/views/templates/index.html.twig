@@ -13,8 +13,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <a class="navbar-brand" href="#" style="white-space:nowrap">vCard App<small style="display:block; color:#08C; font-size:10px; margin-top:-25px;"><br />for Milosolutions</small></a>
-            
+            <a class="navbar-brand" href="#" style="white-space:nowrap">vCard App<small style="display:block; color:#08C; font-size:10px; margin-top:-25px;"><br />for Milosolutions</small></a> 
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav" ng-controller="topMenuCtrl">
@@ -22,18 +21,30 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="">vCards</a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Persons list</a></li>
-                    <li><a ng-click="open()" href="">Add vCard</a></li>
+                    <li><a ng-click="open()" ng-show="{{ is_granted("ROLE_ADMIN") }}" href="">Add vCard</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
+            <li class="dropdown"  ng-show="{{ is_granted("ROLE_ADMIN") }}">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="">Companies</a>
                 <ul class="dropdown-menu">
                     <li><a href="#companies">Companies list</a></li>
-                    <li><a ng-click="openCompanyModal()" href="">Add company</a></li>
+                    <li><a ng-click="openCompanyModal()"  href="">Add company</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"  ng-show="{{ is_granted("ROLE_ADMIN") }}">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">App Users</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#users">User list</a></li>
+                    <li><a ng-click="openUserModal()" href="">Add user</a></li>
                 </ul>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
+        
+          
+        <ul class="nav navbar-nav navbar-right" style="float:right; margin-top:-50px;">
+            <li><a href="{{path('fos_user_security_logout')}}">Logout</a></li>
+        </ul> 
       </div>
     </div>
 
@@ -67,4 +78,7 @@
 <script type="text/javascript" src="../../../bundles/lukkosvcard/js/company/controller.js"></script>
 <script type="text/javascript" src="../../../bundles/lukkosvcard/js/company/factory.js"></script>
 <script type="text/javascript" src="../../../bundles/lukkosvcard/js/company/modalController.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/user/controller.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/user/factory.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/user/modalController.js"></script>
 {% endblock %}

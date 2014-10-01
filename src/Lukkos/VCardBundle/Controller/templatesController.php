@@ -11,7 +11,10 @@ class templatesController extends Controller{
      * @Template()
      */
     public function indexAction()
-    {
+    { 
+        if(!($this->container->get('security.context')->isGranted('ROLE_USER') || $this->container->get('security.context')->isGranted('ROLE_ADMIN'))){
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
+        }
         return array();
     }
     
@@ -48,6 +51,24 @@ class templatesController extends Controller{
     public function companyFormModalAction()
     {
         $form   = $this->createForm(new \Lukkos\VCardBundle\Form\CompanyType());
+        
+        return array('form' => $form->createView());
+    }
+    
+    /**
+     * @Template()
+     */
+    public function usersListTemplateAction()
+    {
+        return array();
+    }
+    
+    /**
+     * @Template()
+     */
+    public function userFormModalAction()
+    {
+        $form   = $this->createForm(new \Lukkos\UserBundle\Form\UserType());
         
         return array('form' => $form->createView());
     }
