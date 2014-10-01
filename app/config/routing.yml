@@ -1,0 +1,3 @@
+lukkos_v_card:
+    resource: "@LukkosVCardBundle/Resources/config/routing.yml"
+

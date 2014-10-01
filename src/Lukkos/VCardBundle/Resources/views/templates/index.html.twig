@@ -1,0 +1,70 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link href="../../../bundles/lukkosvcard/css/vcard.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#" style="white-space:nowrap">vCard App<small style="display:block; color:#08C; font-size:10px; margin-top:-25px;"><br />for Milosolutions</small></a>
+            
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav" ng-controller="topMenuCtrl">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">vCards</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Persons list</a></li>
+                    <li><a ng-click="open()" href="">Add vCard</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="">Companies</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#companies">Companies list</a></li>
+                    <li><a ng-click="openCompanyModal()" href="">Add company</a></li>
+                </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template" ng-view>
+        
+      </div>
+
+    </div><!-- /.container -->
+
+
+    
+
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/angular.min.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/modules/underscore.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/modules/angular-animate.min.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/modules/angular-route.min.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/modules/dialogs.min.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/modules/restangular.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/modules/ui-bootstrap-tpls-0.10.0.min.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/loading-bar/src/loading-bar.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/app.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/factories.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/topMenu/controller.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/person/controller.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/person/factory.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/person/modalController.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/company/controller.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/company/factory.js"></script>
+<script type="text/javascript" src="../../../bundles/lukkosvcard/js/company/modalController.js"></script>
+{% endblock %}

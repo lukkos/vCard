@@ -1,0 +1,23 @@
+lukkos_v_card_api:
+    type: rest
+    prefix:   /api
+    resource: Lukkos\VCardBundle\Controller\vcardController
+lukkos_company_api:
+    type: rest
+    prefix:   /api
+    resource: Lukkos\VCardBundle\Controller\companyController
+lukkos_v_card_templates:
+    path:     /
+    defaults: { _controller: LukkosVCardBundle:templates:index }
+lukkos_v_card_list_template:
+    path:     /listTemplate
+    defaults: { _controller: LukkosVCardBundle:templates:listTemplate }
+lukkos_v_card_person_form_modal:
+    path:     /person/formModal
+    defaults: { _controller: LukkosVCardBundle:templates:personFormModal }
+lukkos_v_card_companies_list_template:
+    path:     /companiesListTemplate
+    defaults: { _controller: LukkosVCardBundle:templates:companiesListTemplate }
+lukkos_v_card_company_form_modal:
+    path:     /company/formModal
+    defaults: { _controller: LukkosVCardBundle:templates:companyFormModal }

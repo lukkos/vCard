@@ -1,0 +1,26 @@
+        <h1>Persons</h1>
+        <p class="lead blue">Click to show details.</p>
+        
+        {% raw %}
+            
+            <div style="display:none">{{flash | json}}</div>
+        
+        <div ng-show="flash.message" class="alert alert-{{flash.status}}" ><span class="glyphicon glyphicon-{{flash.icon}}"></span>&nbsp; {{flash.message}}</div>
+        
+        <div class="list-group">
+            
+            <a href="" ng-click="open(vCardList.0.item.id)" class="list-group-item" ng-show="vCardList.0">{{vCardList.0.item.name}} {{vCardList.0.item.surname}}</a>
+            <a href="" ng-click="open(vCardList.1.item.id)" class="list-group-item" ng-show="vCardList.1">{{vCardList.1.item.name}} {{vCardList.1.item.surname}}</a>
+            <a href="" ng-click="open(vCardList.2.item.id)" class="list-group-item" ng-show="vCardList.2">{{vCardList.2.item.name}} {{vCardList.2.item.surname}}</a>
+            <a href="" ng-click="open(vCardList.3.item.id)" class="list-group-item" ng-show="vCardList.3">{{vCardList.3.item.name}} {{vCardList.3.item.surname}}</a>
+            <a href="" ng-click="open(vCardList.4.item.id)" class="list-group-item" ng-show="vCardList.4">{{vCardList.4.item.name}} {{vCardList.4.item.surname}}</a>
+            
+        </div>
+        
+        <ul class="pagination pagination-sm">
+            <li><a href="" ng-click="Pagination(vCardList.0.params,'prev')">&laquo;</a></li>
+            <li ng-repeat="n in range(1,vCardList.0.params.pageCount)"  ng-class="{active: n==vCardList.0.params.current}" ><a ng-click="Pagination(vCardList.0.params,n)" href="">{{n}} <span class="sr-only">(current)</span></a></li>
+            <li><a ng-click="Pagination(vCardList.0.params,'next')" href="">&raquo;</a></li>
+        </ul>
+        
+        {% endraw %}

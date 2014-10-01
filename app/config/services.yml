@@ -1,0 +1,3 @@
+services:
+    form_errors:
+        class: Lukkos\VCardBundle\Form\FormErrors
